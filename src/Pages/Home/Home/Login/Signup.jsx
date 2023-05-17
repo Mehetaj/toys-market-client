@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import signup from '../../../../assets/d6165fab438f6f58263c2376bc754f0b51676887.gif'
+import { AuthContext } from '../../../../Authprovider/AuthProvider';
 
 const Signup = () => {
+
+    const {createUser} = useContext(AuthContext)
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -13,6 +16,14 @@ const Signup = () => {
         const photo = form.image.value;
 
         console.log(name,email,password,photo);
+
+        createUser(email,password)
+        .then((result) => {
+            console.log(result.user);
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
     }
 
     return (

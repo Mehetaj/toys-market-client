@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import login from '../../../../assets/login.gif'
+import { AuthContext } from '../../../../Authprovider/AuthProvider';
 
 const Login = () => {
+
+    const {signIn} = useContext(AuthContext)
+
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
+
+        signIn(email,password)
+        .then(result => {
+            console.log(result.user);
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
+    }
+
     return (
         <div className='w-full my-20'>
             <div className='flex items-center justify-evenly'>
                 <div>
                     <img src={login} alt="" />
                 </div>
-            <form className='w-[30%]  border rounded-lg h-[450px] my-36 border-gray-600 p-14 mx-auto'>
+            <form onSubmit={handleLogin} className='w-[30%]  border rounded-lg h-[450px] my-36 border-gray-600 p-14 mx-auto'>
             <h2 className='text-2xl font-bold my-8'>Login Here</h2>
 
                 <div className="relative z-0 w-full my-10 group">
