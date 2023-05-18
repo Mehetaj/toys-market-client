@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../assets/the-word-of-toys-making-from-little-acrylic-cubes-in-black-background-2JDW7YR.jpg'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Authprovider/AuthProvider';
 
 const Navbar = () => {
+
+    const {user , logOut} = useContext(AuthContext)
+
+    const handleLogout = () => {
+        logOut()
+    }
+
     return (
         <div>
-            <div className="navbar ">
+            <div className="navbar mt-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -40,7 +48,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login" className="btn-primary"><button>Login</button></Link>
+                    {
+                        user ?
+                        <div className='flex items-center'>
+                            <img className='mr-4 w-16 h-16 rounded-full' src={user?.photoURL} alt="photo" />
+                            <button onClick={handleLogout} className=' btn-primary'>Log out</button>
+                        </div>
+                        :
+                        <Link to="/login" className="btn-primary"><button>Login</button></Link>
+                    }
                 </div>
             </div>
         </div>
