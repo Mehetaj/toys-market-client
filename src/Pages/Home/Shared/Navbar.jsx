@@ -38,7 +38,7 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <li><Link>Home</Link></li>
                         <li tabIndex={0}>
-                            <Link>
+                            <Link to="/alltoys">
                                 All Toys
                             </Link>
                         </li>
