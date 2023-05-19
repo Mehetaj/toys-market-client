@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
+import Swal from 'sweetalert2';
+import { Navigate } from 'react-router-dom';
 
 
 
@@ -44,7 +46,14 @@ const Addtoy = () => {
         .then(data => {
             console.log(data);
             if (data.insertedId) {
-                
+                Swal.fire({
+                    position: ' center',
+                    icon: 'success',
+                    title: 'Toy Added to All Toy Page',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  form.reset()
             }
         })
     }

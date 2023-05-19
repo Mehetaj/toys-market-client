@@ -16,7 +16,7 @@ const Gallery = () => {
     return (
         <div className='my-20'>
             <h1 className='text-3xl my-10 font-bold '>Our Gallery</h1>
-            <div className='grid items-center grid-cols-3'>
+            <div className='grid items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     imgs?.map((img) => <GalleryCard img={img} key={img.id}/>)
                 }

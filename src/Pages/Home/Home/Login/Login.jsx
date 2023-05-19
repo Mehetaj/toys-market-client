@@ -1,10 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../../assets/login.gif'
 import { AuthContext } from '../../../../Authprovider/AuthProvider';
 import PopupLogin from '../../Shared/PopupLogin';
 
 const Login = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location?.state?.from?.pathname || '/'
 
     const [error, setError] = useState('')
 
@@ -25,6 +30,8 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 console.log(result.user);
+                form.reset();
+                navigate(from,{replace: true})
             })
             .catch(err => {
                 // console.log(err.message);
@@ -51,6 +58,8 @@ const Login = () => {
                     </div>
                     <input type="submit" value="Login" className='btn-primary w-full' />
                     <p className='my-4'><small>Don't have an Account? <Link className='text-gray-400' to="/signup">Sign up here </Link></small></p>
+
+                    <p className='my-4 text-red-600'><small>{error}</small></p>
                 <PopupLogin />
                 </form>
             </div>
