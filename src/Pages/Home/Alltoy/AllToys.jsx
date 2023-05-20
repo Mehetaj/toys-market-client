@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Toy from './Toy';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 
 const AllToys = () => {
 
-    // const [toys, setToys] = useState([]);
+    useTitle('All Toys')
 
     const toys = useLoaderData()
-
-    // useEffect(() => {
-    //     fetch('https://toys-server-eight.vercel.app/sportstoys')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data);
-    //             setToys(data)
-    //         })
-    // }, [])
 
     return (
         <div>

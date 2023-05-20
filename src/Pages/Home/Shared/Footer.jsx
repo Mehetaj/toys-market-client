@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/the-word-of-toys-making-from-little-acrylic-cubes-in-black-background-2JDW7YR.jpg'
+import logo from '/vite.webp'
 
 const Footer = () => {
   return (

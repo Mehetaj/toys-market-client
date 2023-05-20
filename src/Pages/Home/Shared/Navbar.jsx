@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import logo from '../../../assets/the-word-of-toys-making-from-little-acrylic-cubes-in-black-background-2JDW7YR.jpg'
+import logo from '/vite.webp'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
 
@@ -28,6 +28,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <Link className="btn btn-ghost text-xl"><img className='w-[60px] h-[60px] rounded-full' src={logo} alt="" /></Link>
+                    <h1 className='text-xl font-bold'>Toggi Toy</h1>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

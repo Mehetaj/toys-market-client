@@ -4,6 +4,7 @@ import login from '../../../../assets/login.gif'
 import { AuthContext } from '../../../../Authprovider/AuthProvider';
 import PopupLogin from '../../Shared/PopupLogin';
 import Swal from 'sweetalert2';
+import useTitle from '../../../../Hooks/useTitle';
 
 const Login = () => {
 
@@ -11,7 +12,7 @@ const Login = () => {
     const location = useLocation();
 
     const from = location?.state?.from?.pathname || '/'
-
+    useTitle('Login')
     const [error, setError] = useState('')
 
     const { signIn } = useContext(AuthContext)

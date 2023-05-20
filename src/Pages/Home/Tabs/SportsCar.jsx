@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Rating } from '@smastrom/react-rating';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Authprovider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SportsCar = ({ sport }) => {
+    const {user} = useContext(AuthContext)
+    const err = () => {
+        if(!user){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Something went wrong!',
+                footer: '<a href="">Please Login </a>'
+            })
+        }
+    }
     // console.log(sport);
     const { picture, name, price, ratings ,_id } = sport
     const rating = parseInt(ratings)
@@ -21,7 +34,7 @@ const SportsCar = ({ sport }) => {
             />
             </div>
             <button className='btn-primary w-full'>
-            <Link to={`/alltoys/${_id}`} >View Details</Link>
+            <Link onClick={err} to={`/alltoys/${_id}`} >View Details</Link>
             </button>
         </div>
     );

@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MyToy from './MyToy';
 import Swal from 'sweetalert2';
+import useTitle from '../../../Hooks/useTitle';
 
 const MyToys = () => {
+
+    useTitle('My Toys')
 
 
 

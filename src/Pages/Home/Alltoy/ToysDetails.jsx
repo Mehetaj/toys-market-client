@@ -2,8 +2,10 @@ import { Rating } from '@smastrom/react-rating';
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 
 const ToysDetails = () => {
+    
 
     // picture, toy name, seller name, seller email, price, rating, available quantity, and detail description
 
@@ -13,6 +15,7 @@ const ToysDetails = () => {
     const rating = parseInt(ratings)
 
     const { user } = useContext(AuthContext)
+    useTitle(`${name} Details`)
 
     return (
         <div>

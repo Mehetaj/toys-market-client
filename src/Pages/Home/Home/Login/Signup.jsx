@@ -6,11 +6,13 @@ import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../../../Firebase/Firebase';
 import PopupLogin from '../../Shared/PopupLogin';
 import Swal from 'sweetalert2';
+import useTitle from '../../../../Hooks/useTitle';
 
 const Signup = () => {
     const [error, setError] = useState('')
 
     const auth = getAuth(app)
+    useTitle('Signup')
 
     const { createUser } = useContext(AuthContext)
 

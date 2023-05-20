@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Authprovider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Navigate } from 'react-router-dom';
+import useTitle from '../../../Hooks/useTitle';
 
 
 
@@ -20,6 +21,8 @@ Detail description
 const Addtoy = () => {
     const { user } = useContext(AuthContext);
 
+    useTitle('Add Toy')
+
 
     const handleAddToy = e => {
         e.preventDefault()
@@ -32,21 +35,8 @@ const Addtoy = () => {
         const description = form.description.value
         const quantity = form.quantity.value;
 
-        const newToy = {name,price,ratings,sub,description,quantity}
+        const newToy = {name,price,ratings,sub,description,quantity,picture}
         console.log(newToy);
-
-
-        // fetch('https://toys-server-eight.vercel.app/posts',{
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newToy)
-        // })
-        // .then(res => res.json())
-        // .then(data => {
-        //     console.log(data);
-        // })
 
         fetch('https://toys-server-eight.vercel.app/posts',{
             method: 'POST',
