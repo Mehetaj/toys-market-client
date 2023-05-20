@@ -9,7 +9,7 @@ const AllToys = () => {
     const toys = useLoaderData()
 
     // useEffect(() => {
-    //     fetch('http://localhost:5000/sportstoys')
+    //     fetch('https://toys-server-eight.vercel.app/sportstoys')
     //         .then(res => res.json())
     //         .then(data => {
     //             // console.log(data);

@@ -7,7 +7,7 @@ const TabsContnet = () => {
 
   const [sportsCar, setSportsCar] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/sportstoys')
+    fetch('https://toys-server-eight.vercel.app/sportstoys')
       .then(res => res.json())
       .then(data => {
         // console.log(data);
@@ -26,21 +26,21 @@ const TabsContnet = () => {
         </TabList>
 
         <TabPanel>
-          <div className='flex justify-evenly items-center'>
+          <div className=' mt- lg:flex justify-evenly items-center'>
             {
               sportsCar.slice(0, 2).map(sport => <SportsCar sport={sport} key={sport._id} />)
             }
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='flex justify-evenly items-center'>
+          <div className='lg:flex justify-evenly items-center'>
             {
               sportsCar.slice(2, 4).map(sport => <SportsCar sport={sport} key={sport._id} />)
             }
           </div>
         </TabPanel>
         <TabPanel>
-          <div className='flex justify-evenly items-center'>
+          <div className='lg:flex justify-evenly items-center'>
             {
               sportsCar.slice(4, 6).map(sport => <SportsCar sport={sport} key={sport._id} />)
             }

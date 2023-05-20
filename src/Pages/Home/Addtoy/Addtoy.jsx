@@ -36,7 +36,7 @@ const Addtoy = () => {
         console.log(newToy);
 
 
-        // fetch('http://localhost:5000/posts',{
+        // fetch('https://toys-server-eight.vercel.app/posts',{
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -48,7 +48,7 @@ const Addtoy = () => {
         //     console.log(data);
         // })
 
-        fetch('http://localhost:5000/posts',{
+        fetch('https://toys-server-eight.vercel.app/posts',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'

@@ -5,7 +5,7 @@ const Gallery = () => {
 
     const [imgs, setImgs] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/imgs')
+        fetch('https://toys-server-eight.vercel.app/imgs')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

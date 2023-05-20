@@ -7,8 +7,8 @@ const SportsCar = ({ sport }) => {
     const { picture, name, price, ratings ,_id } = sport
     const rating = parseInt(ratings)
     return (
-        <div className='border p-6 border-black rounded-lg'>
-            <img className='w-80' src={picture} alt={`Image of ${name}`} />
+        <div className='border my-6 lg:my-0 p-2 lg:p-6 border-black rounded-lg'>
+            <img className='w-full lg:w-80' src={picture} alt={`Image of ${name}`} />
             <h2 className='my-4 text-2xl font-mono'>{name}</h2>
             <p>Price: {price}</p>
             <div className='flex items-center my-3'>

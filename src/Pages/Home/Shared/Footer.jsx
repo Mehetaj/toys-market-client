@@ -3,13 +3,13 @@ import logo from '../../../assets/the-word-of-toys-making-from-little-acrylic-cu
 
 const Footer = () => {
   return (
-    <div className='mt-'>
+    <div className=' mx-auto'>
       <footer className="  footer p-10  text-base-content">
         <div className='text-center lg:text-left'>
-          <img className='w-[100px] h-[100px] rounded-full' src={logo} alt="" />
+          <img className='w-[100px] mx-auto h-[100px] rounded-full' src={logo} alt="" />
           <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
         </div>
-        <div>
+        <div className=''>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
