@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MyToy from './MyToy';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
 
@@ -17,7 +18,13 @@ const MyToys = () => {
         .then(data => {
             console.log(data);
             if (data.deletedCount > 0) {
-                
+                Swal.fire({
+                    position: ' center',
+                    icon: 'success',
+                    title: 'Deleted Succesfull',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                 const remaining = toys.filter(toy => toy._id !== _id);
                 setToys(remaining)
             }

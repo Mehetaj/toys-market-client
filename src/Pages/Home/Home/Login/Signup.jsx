@@ -5,6 +5,7 @@ import { AuthContext } from '../../../../Authprovider/AuthProvider';
 import { getAuth, updateProfile } from 'firebase/auth';
 import app from '../../../../Firebase/Firebase';
 import PopupLogin from '../../Shared/PopupLogin';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
     const [error, setError] = useState('')
@@ -30,6 +31,15 @@ const Signup = () => {
         createUser(email, password)
             .then((result) => {
                 // console.log(result.user);
+                if (result.user) {
+                    Swal.fire({
+                        position: ' center',
+                        icon: 'success',
+                        title: 'Successfully Created Account',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
                 updateProfile(auth.currentUser, {
                     displayName: name,
                     photoURL: photo

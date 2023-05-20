@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../../../assets/login.gif'
 import { AuthContext } from '../../../../Authprovider/AuthProvider';
 import PopupLogin from '../../Shared/PopupLogin';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -29,7 +30,16 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
+                if (result.user) {
+                    Swal.fire({
+                        position: ' center',
+                        icon: 'success',
+                        title: 'Successfully Logged IN',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
                 form.reset();
                 navigate(from,{replace: true})
             })
