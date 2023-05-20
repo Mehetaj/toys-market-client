@@ -35,7 +35,20 @@ const Addtoy = () => {
         const newToy = {name,price,ratings,sub,description,quantity}
         console.log(newToy);
 
-        fetch('http://localhost:5000/sportstoys',{
+
+        // fetch('http://localhost:5000/posts',{
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newToy)
+        // })
+        // .then(res => res.json())
+        // .then(data => {
+        //     console.log(data);
+        // })
+
+        fetch('http://localhost:5000/posts',{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
