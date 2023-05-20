@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const UpdateToy = () => {
 
     const toy = useLoaderData()
-    console.log(toy);
 
     const handleUpdate = (e) => {
         e.preventDefault();
