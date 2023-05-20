@@ -20,23 +20,31 @@ const TabsContnet = () => {
       <h1 className='text-3xl font-bold my-6'>Shop</h1>
       <Tabs className="border p-10">
         <TabList>
-          <Tab>Regular Car</Tab>
           <Tab>Sports Car</Tab>
-          <Tab>Fire Truck</Tab>
+          <Tab>Regular Car</Tab>
+          <Tab>Police Car</Tab>
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
-        </TabPanel>
-        <TabPanel>
           <div className='flex justify-evenly items-center'>
             {
-              sportsCar.map(sport => <SportsCar sport={sport} key={sport._id} />)
+              sportsCar.slice(0, 2).map(sport => <SportsCar sport={sport} key={sport._id} />)
             }
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <div className='flex justify-evenly items-center'>
+            {
+              sportsCar.slice(2, 4).map(sport => <SportsCar sport={sport} key={sport._id} />)
+            }
+          </div>
+        </TabPanel>
+        <TabPanel>
+          <div className='flex justify-evenly items-center'>
+            {
+              sportsCar.slice(4, 6).map(sport => <SportsCar sport={sport} key={sport._id} />)
+            }
+          </div>
         </TabPanel>
       </Tabs>
     </div>

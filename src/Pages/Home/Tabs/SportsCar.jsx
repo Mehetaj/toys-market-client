@@ -1,13 +1,14 @@
 import React from 'react';
 import { Rating } from '@smastrom/react-rating';
+import { Link } from 'react-router-dom';
 
 const SportsCar = ({ sport }) => {
-    console.log(sport);
-    const { picture, name, price, ratings } = sport
+    // console.log(sport);
+    const { picture, name, price, ratings ,_id } = sport
     const rating = parseInt(ratings)
     return (
         <div className='border p-6 border-black rounded-lg'>
-            <img className='w-80' src={picture} alt="" />
+            <img className='w-80' src={picture} alt={`Image of ${name}`} />
             <h2 className='my-4 text-2xl font-mono'>{name}</h2>
             <p>Price: {price}</p>
             <div className='flex items-center my-3'>
@@ -19,7 +20,9 @@ const SportsCar = ({ sport }) => {
                 
             />
             </div>
-            <button className='btn-primary w-full mt-4'>View Details</button>
+            <button className='btn-primary w-full'>
+            <Link to={`/alltoys/${_id}`} >View Details</Link>
+            </button>
         </div>
     );
 };

@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MyToy from './MyToy';
 
 const MyToys = () => {
 
-    const toys = useLoaderData();
-    console.log(toys);
+
+
+    const loadedToys = useLoaderData();
+    const [toys, setToys] = useState(loadedToys);
+
+    const handleDeleteToy = (_id) => {
+        fetch(`http://localhost:5000/posts/${_id}`, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+                
+                const remaining = toys.filter(toy => toy._id !== _id);
+                setToys(remaining)
+            }
+        })
+    }
 
     return (
         <div className='my-10'>
@@ -23,7 +40,7 @@ const MyToys = () => {
                 </div>
                 <div>
                     {
-                        toys.map(toy => <MyToy key={toy._id} toy={toy}/>)
+                        toys.map(toy => <MyToy handleDeleteToy={handleDeleteToy} key={toy._id} toy={toy}/>)
                     }
                 </div>
             </div>

@@ -32,7 +32,7 @@ const AllToys = () => {
                             <th>Details</th>
                         </thead>
                         {
-                            toys?.map(toy => (
+                            toys?.slice(0,20)?.map(toy => (
                                 <tbody  key={toy._id}>
                                     <Toy toy={toy} />
                                 </tbody>

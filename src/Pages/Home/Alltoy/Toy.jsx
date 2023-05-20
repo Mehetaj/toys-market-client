@@ -4,19 +4,18 @@ import { Link } from 'react-router-dom';
 
 const Toy = ({ toy }) => {
     // console.log(toy);
-    const { price, name, sub, quantity, _id} = toy;
+    const { price, name, sub_category
+        , quantity, _id } = toy;
     const { user } = useContext(AuthContext)
+    // console.log(toy);
 
-    const viewDetails = () => {
-
-    }
 
 
     return (
         <tr>
             <td>{user?.displayName}</td>
             <td>{name}</td>
-            <td>{sub}</td>
+            <td>{sub_category}</td>
             <td>{price}</td>
             <td>{quantity}</td>
             <td><button className='btn-primary'><Link to={`/alltoys/${_id}`}>View Details</Link></button></td>
